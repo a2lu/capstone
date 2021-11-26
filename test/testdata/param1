@@ -1,0 +1,191 @@
+ee.Image({
+  "functionInvocationValue": {
+    "functionName": "reduce.median",
+    "arguments": {
+      "collection": {
+        "functionInvocationValue": {
+          "functionName": "Collection.map",
+          "arguments": {
+            "baseAlgorithm": {
+              "functionDefinitionValue": {
+                "argumentNames": [
+                  "_MAPPING_VAR_0_0"
+                ],
+                "body": {
+                  "functionInvocationValue": {
+                    "functionName": "Image.divide",
+                    "arguments": {
+                      "image1": {
+                        "functionInvocationValue": {
+                          "functionName": "Image.updateMask",
+                          "arguments": {
+                            "image": {
+                              "argumentReference": "_MAPPING_VAR_0_0"
+                            },
+                            "mask": {
+                              "functionInvocationValue": {
+                                "functionName": "Image.eq",
+                                "arguments": {
+                                  "image1": {
+                                    "functionInvocationValue": {
+                                      "functionName": "Image.bitwiseAnd",
+                                      "arguments": {
+                                        "image1": {
+                                          "functionInvocationValue": {
+                                            "functionName": "Image.eq",
+                                            "arguments": {
+                                              "image1": {
+                                                "functionInvocationValue": {
+                                                  "functionName": "Image.bitwiseAnd",
+                                                  "arguments": {
+                                                    "image1": {
+                                                      "functionInvocationValue": {
+                                                        "functionName": "Image.select",
+                                                        "arguments": {
+                                                          "bandSelectors": {
+                                                            "constantValue": [
+                                                              "QA60"
+                                                            ]
+                                                          },
+                                                          "input": {
+                                                            "argumentReference": "_MAPPING_VAR_0_0"
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "image2": {
+                                                      "functionInvocationValue": {
+                                                        "functionName": "Image.constant",
+                                                        "arguments": {
+                                                          "value": {
+                                                            "constantValue": 1024
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "image2": {
+                                                "functionInvocationValue": {
+                                                  "functionName": "Image.constant",
+                                                  "arguments": {
+                                                    "value": {
+                                                      "constantValue": 0
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "image2": {
+                                          "functionInvocationValue": {
+                                            "functionName": "Image.constant",
+                                            "arguments": {
+                                              "value": {
+                                                "constantValue": 2048
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "image2": {
+                                    "functionInvocationValue": {
+                                      "functionName": "Image.constant",
+                                      "arguments": {
+                                        "value": {
+                                          "constantValue": 0
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "image2": {
+                        "functionInvocationValue": {
+                          "functionName": "Image.constant",
+                          "arguments": {
+                            "value": {
+                              "constantValue": 10000
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "collection": {
+              "functionInvocationValue": {
+                "functionName": "Collection.filter",
+                "arguments": {
+                  "collection": {
+                    "functionInvocationValue": {
+                      "functionName": "Collection.filter",
+                      "arguments": {
+                        "collection": {
+                          "functionInvocationValue": {
+                            "functionName": "ImageCollection.load",
+                            "arguments": {
+                              "id": {
+                                "constantValue": "COPERNICUS/S2_SR"
+                              }
+                            }
+                          }
+                        },
+                        "filter": {
+                          "functionInvocationValue": {
+                            "functionName": "Filter.dateRangeContains",
+                            "arguments": {
+                              "leftValue": {
+                                "functionInvocationValue": {
+                                  "functionName": "DateRange",
+                                  "arguments": {
+                                    "end": {
+                                      "constantValue": "2019-03-30"
+                                    },
+                                    "start": {
+                                      "constantValue": "2019-03-01"
+                                    }
+                                  }
+                                }
+                              },
+                              "rightField": {
+                                "constantValue": "system:time_start"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "filter": {
+                    "functionInvocationValue": {
+                      "functionName": "Filter.lessThan",
+                      "arguments": {
+                        "leftField": {
+                          "constantValue": "CLOUDY_PIXEL_PERCENTAGE"
+                        },
+                        "rightValue": {
+                          "constantValue": 20
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+})
