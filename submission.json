@@ -1,37 +1,4 @@
-ARG BASE_CONTAINER=ucsdets/datahub-base-notebook:2021.2-stable
-
-FROM $BASE_CONTAINER
-
-LABEL maintainer="UC San Diego ITS/ETS <ets-consult@ucsd.edu>"
-
-USER root
-
-RUN apt-get -y install htop
-
-RUN apt-get update --fix-missing && \
-    apt-get install -y git \
-                       build-essential \
-                       cmake \
-                       vim \
-                       wget
-
-RUN apt-get update \
-  && apt-get install -y build-essential libssl-dev libffi-dev \
-  && pip install cryptography \
-  && apt-get purge -y build-essential libssl-dev libffi-dev \
-                      dpkg-dev fakeroot libfakeroot:amd64 \
-  && apt-get autoremove -y \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
-
-RUN pip install earthengine-api
-
-# 3) install packages using notebook user
-USER jovyan
-
-# RUN conda install -y scikit-learn
-
-RUN pip install --no-cache-dir networkx scipy
-
-# Override command to disable running jupyter notebook at launch
-# CMD ["/bin/bash"]
+{
+    "dockerhub-id": "alilu243/capstone",
+    "build-script": "python run.py"
+}
